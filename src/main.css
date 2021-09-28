@@ -1,0 +1,63 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('fonts/fontello.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.data-table {
+  text-align: center;
+  width: 100%;
+  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+}
+
+.data-table th {
+  background: grey;
+  color: white;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+.data-table tr {
+  background: lightblue;
+}
+.data-table td {
+  padding: 0.5rem;
+}
+
+.ui-ibtn {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  color: inherit;
+  font-size: 1rem;
+}
+.ui-ibtn:before {
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: 0.2em;
+}
+.ui-ibtn--edit:before {
+  content: '\e801';
+}
+.ui-ibtn--arch:before {
+  content: '\e800';
+}
+.ui-ibtn--del:before {
+  content: '\e802';
+}

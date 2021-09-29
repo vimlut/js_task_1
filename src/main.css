@@ -1,0 +1,114 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('fonts/fontello.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input,
+select,
+textarea {
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.data-table {
+  text-align: center;
+  width: 100%;
+  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+}
+
+.data-table th {
+  background: grey;
+  color: white;
+  padding: 0.5rem;
+  font-weight: bold;
+}
+
+.data-table tr {
+  background: lightblue;
+}
+.data-table td {
+  padding: 0.5rem;
+}
+
+dialog {
+  min-width: 400px;
+}
+.form-controls {
+  display: flex;
+  justify-content: space-between;
+}
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  display: block;
+}
+
+.form-group select,
+.form-group input {
+  display: block;
+  width: 100%;
+}
+
+.form-group textarea {
+  display: block;
+  resize: vertical;
+  margin-right: 0;
+  width: 100%;
+}
+
+.ui-ibtn {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  color: inherit;
+  font-size: 1rem;
+  opacity: 1;
+}
+
+.ui-ibtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ui-ibtn:before {
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: 0.2em;
+}
+
+.ui-ibtn--edit:before {
+  content: '\e801';
+}
+
+.ui-ibtn--arch:before {
+  content: '\e800';
+}
+
+.ui-ibtn--del:before {
+  content: '\e802';
+}

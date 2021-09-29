@@ -11,18 +11,21 @@ export class TaskList {
     return this.tasks;
   }
   getActiveTasks() {
-    return this.tasks.filter((task) => !task.isArchieved);
+    return this.tasks.filter((task) => !task.isArchived);
+  }
+  getArchivedTasks() {
+    return this.tasks.filter((task) => task.isArchived);
   }
   getTasksByCategory(category) {
-    return this.tasks.filter((task) => task.category === category);
-  }
-  getActiveTasksByCategory(category) {
-    return this.getTasksByCategory(category).filter(
-      (task) => !task.isArchieved
+    return this.tasks.filter(
+      (task) => task.category.toUpperCase() === category.toUpperCase()
     );
   }
+  getActiveTasksByCategory(category) {
+    return this.getTasksByCategory(category).filter((task) => !task.isArchived);
+  }
   getArchivedTasksByCategory(category) {
-    return this.getTasksByCategory(category).filter((task) => task.isArchieved);
+    return this.getTasksByCategory(category).filter((task) => task.isArchived);
   }
   getActiveTasksCountByCategory(category) {
     return this.getActiveTasksByCategory(category).length;
@@ -33,16 +36,26 @@ export class TaskList {
   getTask(id) {
     return this.tasks.find((task) => task.id === id);
   }
-  updateTask(id, data) {
+  updateTask(data) {
+    const id = data.id;
     this.tasks = this.tasks.map((task) => {
-      return task.id === id ? { ...task, data } : task;
+      return task.id === id ? { ...task, ...data } : task;
     });
   }
-  removeTask(id) {
+  archiveTask(id) {
+    this.updateTask({ id, isArchived: true });
+  }
+  unArchiveTask(id) {
+    this.updateTask({ id, isArchived: false });
+  }
+  deleteTask(id) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
   }
-  removeTasks() {
-    this.tasks = [];
+  deleteTasks() {
+    this.tasks.length = 0;
+  }
+  archiveTasks() {
+    this.tasks = this.tasks.map((task) => ({ ...task, isArchived: true }));
   }
   getTasksStats() {
     const categories = ['Task', 'Random Thought', 'Idea', 'Quote'];
